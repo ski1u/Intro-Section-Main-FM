@@ -1,0 +1,174 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    /* border: 1px solid red; */
+    font-family: Epilogue;
+    user-select: none;
+}
+
+:root {
+    --AlmostWhite: hsl(0, 0%, 98%);
+    --MediumGray: hsl(0, 0%, 41%);
+    --AlmostBlack: hsl(0, 0%, 8%);
+}
+
+/* NAVBAR */
+nav {margin : 1rem}
+nav, .navbar, .leftnav, .rightnav {
+    display: flex;
+    align-items: center;
+}
+nav > * {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--MediumGray);
+}
+.navbar {
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+nav img {
+    margin-right: 3rem
+}
+
+.leftnav > div, .leftnav > p {
+    margin-right: 2rem;
+    cursor: pointer
+}
+.rightnav > * {
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    /* margin-right: -6rem !important */
+}
+.dropdown::after {
+    content: "";
+    background-image: url(/images/icon-arrow-down.svg);
+    position: absolute;
+    top: 30%;
+    left: 110%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    z-index: 999;
+}
+.dropdown-content {
+    position: absolute;
+    top: 1rem;
+    left: -1rem;
+    background-color: white;
+    box-shadow: 0 0 10px 5px hsla(0, 0%, 8%, 0.1);
+    border-radius: 8px;
+    padding: 0.1rem 1.5rem;
+    display: none;
+    animation: buttonclick 0.4s forwards;
+}
+.dropdown-content.show {
+    display: block;
+}
+.dropdown-content > * {
+    position: relative;
+    cursor: pointer;
+}
+.todo, .calender, .reminder, .planning {margin-left: 0.5rem}
+.todo::after {content: "";background-image: url(/images/icon-todo.svg);position: absolute;top: 0;right: 105%;background-size: contain;background-repeat: no-repeat;width: 13px;height: 13px;z-index: 999}
+.calender::after {content: "";background-image: url(/images/icon-calendar.svg);position: absolute;top: 0;right: 105%;background-size: contain;background-repeat: no-repeat;width: 13px;height: 13px;z-index: 999}
+.reminder::after {content: "";background-image: url(/images/icon-reminders.svg);position: absolute;top: 0;right: 105%;background-size: contain;background-repeat: no-repeat;width: 13px;height: 13px;z-index: 999}
+.planning::after {content: "";background-image: url(/images/icon-planning.svg);position: absolute;top: 0;right: 105%;background-size: contain;background-repeat: no-repeat;width: 13px;height: 13px;z-index: 999}
+
+
+.circle {
+    border: 1px solid var(--MediumGray);
+    border-radius: 12px;
+    padding: 0.75rem 1rem
+}
+.fill {
+    background-color: var(--AlmostBlack);
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+}
+.navbtn {
+    transition: all 0.4s;
+}
+
+
+
+
+/* HERO MAIN CONTENT */
+.container {
+    display: flex;
+    margin: 2rem 7rem;
+}
+.left-content, .right-content {
+    flex: 1
+}
+
+.title {
+    font-weight: 800;
+    font-size: 65px;
+    margin-top: 5rem;
+}
+.desc {
+    color: var(--MediumGray);
+    font-weight: 550;
+    font-size: 16px;
+    width: 75%;
+    line-height: 1.4rem;
+    margin-bottom: 3.5rem
+}
+.left-content .btn {
+    font-weight: 600;
+    font-size: 18px;
+    border: 1px solid var(--AlmostBlack);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.clients {
+    margin-top: 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-content {
+    display: flex;
+    justify-content: center;
+}
+.right-content > img {
+    width: 75%;
+    height: 80vh
+}
+
+
+
+
+
+
+/* ANIMATIONS */
+.left-content .btn:hover {
+    background-color: var(--AlmostWhite);
+    color: var(--AlmostBlack)
+}
+.navbtn:hover {
+    transform: translateY(-3px);
+}
+
+@keyframes buttonclick {
+    from {
+        opacity: 0;
+        top: 1rem;
+    }
+    to {
+        opacity: 1;
+        top: 1.5rem;
+    }
+}
